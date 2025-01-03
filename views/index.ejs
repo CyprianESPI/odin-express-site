@@ -5,6 +5,6 @@
   <body>
     <%- include('navbar', {links: links}) %> <%- include('pages/'+page) %>
     <!-- locals property can be used to extend the template without calling render yet -->
-    <%= locals.foo %>
+    <%= locals.foo %> <%- include('footer') %>
   </body>
 </html>
