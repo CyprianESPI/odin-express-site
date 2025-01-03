@@ -3,11 +3,7 @@
     <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
-    <%- include('navbar', {links: links}) %>
-    <ul>
-      <% users.forEach((user) => { %> <%- include('user', {user: user}); %> <%
-      }); %>
-    </ul>
+    <%- include('navbar', {links: links}) %> <%- include('pages/'+page) %>
     <!-- locals property can be used to extend the template without calling render yet -->
     <%= locals.foo %>
   </body>

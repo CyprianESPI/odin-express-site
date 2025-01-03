@@ -14,15 +14,17 @@ app.set("view engine", "ejs");
 const PORT = process.env.PORT || 3000;
 const HOST_NAME = "localhost";
 const links = [
-    { href: "/", text: "Home" },
-    { href: "about", text: "About" },
+    { href: "/", text: "Home", page: 'home'},
+    { href: "/about", text: "About", page: 'about'},
+    { href: "/contact-me", text: "Contact Me", page: 'contact-me'},
 ];
 
-const users = ["Rose", "Cake", "Biff"];
+links.forEach((link) => {
+    app.get(link.href, (req, res) => {
+        res.render("index", { links: links, page: link.page });
+    });
+})
 
-app.get("/", (req, res) => {
-    res.render("index", { links: links, users: users });
-});
 
 // Handle unexpected route (404 error)
 app.get('*', (req, res) => res.status(404).sendFile('pages/404.html', {root: '.'}));
