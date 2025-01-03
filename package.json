@@ -1,0 +1,12 @@
+{
+  "name": "odin-express-site",
+  "version": "1.0.0",
+  "description": "## Motivation https://www.theodinproject.com/lessons/node-path-nodejs-introduction-to-express",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
