@@ -1,9 +1,13 @@
 require('dotenv').config();
 const express = require("express");
 const app = express();
+const path = require("node:path");
+
+// Serve /public/styles.css file
+const assetsPath = path.join(__dirname, "public");
+app.use(express.static(assetsPath));
 
 // Enable EJS as the view engine, will look for templates in /views dir
-const path = require("node:path");
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
