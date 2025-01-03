@@ -9,15 +9,14 @@ app.set("view engine", "ejs");
 
 const PORT = process.env.PORT || 3000;
 const HOST_NAME = "localhost";
-const ROUTES = [
-    { urlPath: '/', filePath: '/pages/index.html'},
-    { urlPath: '/about', filePath: '/pages/about.html'},
-    { urlPath: '/contact-me', filePath: '/pages/contact-me.html'},
-]
+const links = [
+    { href: "/", text: "Home" },
+    { href: "about", text: "About" },
+];
 
-ROUTES.forEach((route) => {
-    app.get(route.urlPath, (req, res) => res.sendFile(route.filePath, {root: '.'}));
-})
+app.get("/", (req, res) => {
+    res.render("index", { links: links });
+});
 
 // Handle unexpected route (404 error)
 app.get('*', (req, res) => res.status(404).sendFile('pages/404.html', {root: '.'}));
