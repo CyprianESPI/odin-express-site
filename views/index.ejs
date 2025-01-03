@@ -1,6 +1,6 @@
 <html>
   <body>
-    <%= message %>
+    <%- include('navbar', {links: links}) %>
     <!-- locals property can be used to extend the template without calling render yet -->
     <%= locals.foo %>
   </body>
