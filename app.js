@@ -25,9 +25,8 @@ links.forEach((link) => {
     });
 })
 
-
 // Handle unexpected route (404 error)
-app.get('*', (req, res) => res.status(404).sendFile('pages/404.html', {root: '.'}));
+app.get('*', (req, res) => res.status(404).render("index", { links: links, page: "404" }));
 
 app.listen(PORT, () => {
   console.log(`My first Express app - listening on port http://${HOST_NAME}:${PORT}!`);
