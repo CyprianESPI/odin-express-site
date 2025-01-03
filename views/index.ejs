@@ -1,6 +1,10 @@
 <html>
   <body>
     <%- include('navbar', {links: links}) %>
+    <ul>
+      <% users.forEach((user) => { %> <%- include('user', {user: user}); %> <%
+      }); %>
+    </ul>
     <!-- locals property can be used to extend the template without calling render yet -->
     <%= locals.foo %>
   </body>
