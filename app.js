@@ -2,6 +2,11 @@ require('dotenv').config();
 const express = require("express");
 const app = express();
 
+// Enable EJS as the view engine, will look for templates in /views dir
+const path = require("node:path");
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "ejs");
+
 const PORT = process.env.PORT || 3000;
 const HOST_NAME = "localhost";
 const ROUTES = [
