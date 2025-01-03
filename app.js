@@ -14,6 +14,9 @@ ROUTES.forEach((route) => {
     app.get(route.urlPath, (req, res) => res.sendFile(route.filePath, {root: '.'}));
 })
 
+// Handle unexpected route (404 error)
+app.get('*', (req, res) => res.sendFile('pages/404.html', {root: '.'}));
+
 app.listen(PORT, () => {
   console.log(`My first Express app - listening on port http://${HOST_NAME}:${PORT}!`);
 });
